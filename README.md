@@ -3,6 +3,8 @@
 
 A node library for reading [GUID Partition Tables], [Master Boot Records] and [Volume Boot Records] raw & straight from the disk.
 
+Please note that this is experimental stuff. It might not work as expected or work at all with your storage devices and/or might not detect the GPT/MBR/VBR properly or at all. In that case, please file a bug.
+
 [GUID Partition Tables]: https://en.wikipedia.org/wiki/GUID_Partition_Table
 [Master Boot Records]: https://en.wikipedia.org/wiki/Master_Boot_Record
 [Volume Boot Records]: https://en.wikipedia.org/wiki/Volume_Boot_Record
