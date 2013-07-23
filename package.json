@@ -1,0 +1,26 @@
+{
+  
+  "name": "disk",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "",
+  "kewords": [ "disk", "mbr", "gpt", "vbr" ],
+  
+  "author": {
+    "name": "Jonas Hermsmeier",
+    "email": "jhermsmeier@gmail.com",
+    "url": "https://github.com/jhermsmeier"
+  },
+  
+  "main": "lib/disk.js",
+  
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jhermsmeier/node-disk.git"
+  },
+  
+  "bugs": {
+    "url": "https://github.com/jhermsmeier/node-disk/issues"
+  }
+  
+}
