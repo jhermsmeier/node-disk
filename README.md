@@ -38,31 +38,41 @@ var hdd = disk.load( '/dev/sda' )
   path: '\\\\.\\PhysicalDrive0',
   MBR: {
     partitions: [{
-      status: <Buffer 00>,
-      type: <Buffer ee>,
-      firstCHS: <Buffer fe ff ff>,
-      lastCHS: <Buffer fe ff ff>,
+      status: 0,
+      type: 238,
+      info: [{ description: 'GPT, protective MBR' }],
+      firstCHS: 65534,
+      lastCHS: 65534,
       LBA: 1,
       sectors: 409639
     }, {
-      status: <Buffer 00>,
-      type: <Buffer af>,
-      firstCHS: <Buffer fe ff ff>,
-      lastCHS: <Buffer fe ff ff>,
+      status: 0,
+      type: 175,
+      info: [{ fs: 'HFS', os: 'Mac OS' }],
+      firstCHS: 65534,
+      lastCHS: 65534,
       LBA: 409640,
       sectors: 52734376
     }, {
-      status: <Buffer 00>,
-      type: <Buffer ab>,
-      firstCHS: <Buffer fe ff ff>,
-      lastCHS: <Buffer fe ff ff>,
+      status: 0,
+      type: 171,
+      info: [{ os: 'Mac OS', description: 'Apple Boot' }],
+      firstCHS: 65534,
+      lastCHS: 65534,
       LBA: 53144016,
       sectors: 1269536
     }, {
-      status: <Buffer 80>,
-      type: <Buffer 07>,
-      firstCHS: <Buffer fe ff ff>,
-      lastCHS: <Buffer fe ff ff>,
+      status: 128,
+      type: 7,
+      info: [
+        { fs: 'IFS', os: 'OS/2' },
+        { fs: 'HPFS', os: 'OS/2' },
+        { fs: 'HPFS', os: 'Windows' },
+        { fs: 'NTFS', os: 'Windows' },
+        { fs: 'exFAT', os: 'Windows' }
+      ],
+      firstCHS: 65534,
+      lastCHS: 65534,
       LBA: 54415360,
       sectors: 182560768
     }]
@@ -72,12 +82,9 @@ var hdd = disk.load( '/dev/sda' )
       revision: <Buffer 00 00 01 00>,
       headerSize: 92,
       CRC32: <Buffer c7 14 c6 99>,
-      currentLBA: <Buffer 01 00 00 00 00 00 00 00>,
-      backupLBA: <Buffer ff ff 1f 0e 00 00 00 00>,
-      GUID: {
-        bytes: <Buffer 86 0c 0b 57 0e 7c 0d 4c a2 56 cb 35 24 ac 43 69>,
-        string: '570B0C86-7C0E-4C0D-A256-CB3524AC4369'
-      },
+      currentLBA: 1,
+      backupLBA: 236978175,
+      GUID: '570B0C86-7C0E-4C0D-A256-CB3524AC4369',
       partitionTableLBA: 2,
       partitionEntryCount: 128,
       partitionEntrySize: 128,
@@ -86,31 +93,47 @@ var hdd = disk.load( '/dev/sda' )
     partitions: [{
       GUID: 'C32C0120-B185-45D6-8840-17E25512232C',
       type: 'C12A7328-F81F-11D2-BA4B-00A0C93EC93B',
-      name: <Buffer 45 00 46 00 49 00 20 00 53 00 79 00 73 00 74 00 65 00 6d 00 20 00 50 00 61 00 72 00 74 00 69 00 74 00 69 00 6f 00 6e 00 00 00 00 00 00 00 00 00 00 00 00...>,
+      info: {
+        OS: null,
+        description: 'EFI System partition'
+      },
+      name: 'EFI System Partition',
       attributes: <Buffer 00 00 00 00 00 00 00 00>,
-      firstLBA: <Buffer 28 00 00 00 00 00 00 00>,
-      lastLBA: <Buffer 27 40 06 00 00 00 00 00>
+      firstLBA: 40,
+      lastLBA: 409639
     }, {
       GUID: '0BAC4220-A766-4D48-A4EB-FFD8BC9DACA1',
       type: '48465300-0000-11AA-AA11-00306543ECAC',
-      name: <Buffer 53 00 79 00 73 00 74 00 65 00 6d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00...>,
+      info: {
+        OS: 'Mac OS X',
+        description: 'HFS+ partition'
+      },
+      name: 'System',
       attributes: <Buffer 00 00 00 00 00 00 00 00>,
-      firstLBA: <Buffer 28 40 06 00 00 00 00 00>,
-      lastLBA: <Buffer cf e9 2a 03 00 00 00 00>
+      firstLBA: 409640,
+      lastLBA: 53144015
     }, {
       GUID: '5CD98B53-D17B-4F67-9297-9D19DAE91E37',
       type: '426F6F74-0000-11AA-AA11-00306543ECAC',
-      name: <Buffer 52 00 65 00 63 00 6f 00 76 00 65 00 72 00 79 00 20 00 48 00 44 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00...>,
+      info: {
+        OS: 'Mac OS X',
+        description: 'Apple Boot partition'
+      },
+      name: 'Recovery HD',
       attributes: <Buffer 00 00 00 00 00 00 00 00>,
-      firstLBA: <Buffer d0 e9 2a 03 00 00 00 00>,
-      lastLBA: <Buffer ef 48 3e 03 00 00 00 00>
+      firstLBA: 53144016,
+      lastLBA: 54413551
     }, {
       GUID: '4EB6A87B-269C-4A66-AE60-97EFB83E2DC8',
       type: 'EBD0A0A2-B9E5-4433-87C0-68B6B72699C7',
-      name: <Buffer 42 00 4f 00 4f 00 54 00 43 00 41 00 4d 00 50 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00...>,
+      info: {
+        OS: 'Windows',
+        description: 'Basic data partition'
+      },
+      name: 'BOOTCAMP',
       attributes: <Buffer 00 00 00 00 00 00 00 00>,
-      firstLBA: <Buffer 00 50 3e 03 00 00 00 00>,
-      lastLBA: <Buffer ff f7 1f 0e 00 00 00 00>
+      firstLBA: 54415360,
+      lastLBA: 236976127
     }]
   }
 }
