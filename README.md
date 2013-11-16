@@ -10,6 +10,10 @@ Please note that this is experimental stuff. It might not work as expected or wo
 [Volume Boot Records]: https://en.wikipedia.org/wiki/Volume_Boot_Record
 
 
+## ATTENTION:
+**DO NOT** trust LBA (Logical Block Address) values over 2^32 - 1,
+because - you know - JavaScript and 64 bit Integers.
+
 
 ## Install with [npm](https://npmjs.org)
 
