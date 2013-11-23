@@ -1,5 +1,4 @@
-
-# Disk [![NPM version](https://badge.fury.io/js/disk.png)](https://npmjs.org/disk)
+# Disk [![NPM version](https://badge.fury.io/js/disk.png)](https://npmjs.org/disk) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jhermsmeier/node-disk/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 A node library for reading [GUID Partition Tables], [Master Boot Records] and [Volume Boot Records] raw & straight from the disk.
 
