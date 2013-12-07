@@ -43,27 +43,38 @@ var hdd = disk.load( '/dev/sda' )
     partitions: [{
       status: 0,
       type: 238,
-      info: [{ description: 'GPT, protective MBR' }],
+      info: [{
+        description: 'GPT, protective MBR'
+      }],
       firstCHS: 65534,
       lastCHS: 65534,
       LBA: 1,
-      sectors: 409639
+      sectors: 409639,
+      volume: [Error: No VBR detected]
     }, {
       status: 0,
       type: 175,
-      info: [{ fs: 'HFS', os: 'Mac OS' }],
+      info: [{
+        fs: 'HFS',
+        os: 'Mac OS'
+      }],
       firstCHS: 65534,
       lastCHS: 65534,
       LBA: 409640,
-      sectors: 52734376
+      sectors: 52734376,
+      volume: [Error: No VBR detected]
     }, {
       status: 0,
       type: 171,
-      info: [{ os: 'Mac OS', description: 'Apple Boot' }],
+      info: [{
+        os: 'Mac OS',
+        description: 'Apple Boot'
+      }],
       firstCHS: 65534,
       lastCHS: 65534,
       LBA: 53144016,
-      sectors: 1269536
+      sectors: 1269536,
+      volume: [Error: No VBR detected]
     }, {
       status: 128,
       type: 7,
@@ -77,21 +88,36 @@ var hdd = disk.load( '/dev/sda' )
       firstCHS: 65534,
       lastCHS: 65534,
       LBA: 54415360,
-      sectors: 182560768
+      sectors: 182560768,
+      volume: {
+        systemName: 'NTFS',
+        type: < Buffer f8 > ,
+        bytesPerSector: 512,
+        sectorsPerCluster: 8,
+        clusterSize: 4096,
+        numberOfFATs: 0,
+        maxEntries: 0,
+        sectorsPerFAT: 0,
+        sectorsPerTrack: 63,
+        headsPerTrack: 255,
+        hiddenSectors: 20480,
+        reservedSectors: 0,
+        sectors: 0
+      }
     }]
   },
   GPT: {
     header: {
-      revision: <Buffer 00 00 01 00>,
+      revision: < Buffer 00 00 01 00 > ,
       headerSize: 92,
-      CRC32: <Buffer c7 14 c6 99>,
+      CRC32: < Buffer e8 01 54 49 > ,
       currentLBA: 1,
       backupLBA: 236978175,
       GUID: '570B0C86-7C0E-4C0D-A256-CB3524AC4369',
       partitionTableLBA: 2,
       partitionEntryCount: 128,
       partitionEntrySize: 128,
-      partitionTableCRC32: <Buffer 2c 04 4b 65>
+      partitionTableCRC32: < Buffer d4 f4 b1 57 >
     },
     partitions: [{
       GUID: 'C32C0120-B185-45D6-8840-17E25512232C',
@@ -101,9 +127,24 @@ var hdd = disk.load( '/dev/sda' )
         description: 'EFI System partition'
       },
       name: 'EFI System Partition',
-      attributes: <Buffer 00 00 00 00 00 00 00 00>,
+      attributes: < Buffer 00 00 00 00 00 00 00 00 > ,
       firstLBA: 40,
-      lastLBA: 409639
+      lastLBA: 409639,
+      volume: {
+        systemName: 'BSD4.4',
+        type: < Buffer f0 > ,
+        bytesPerSector: 512,
+        sectorsPerCluster: 1,
+        clusterSize: 512,
+        numberOfFATs: 2,
+        maxEntries: 0,
+        sectorsPerFAT: 0,
+        sectorsPerTrack: 32,
+        headsPerTrack: 16,
+        hiddenSectors: 0,
+        reservedSectors: 32,
+        sectors: 16384
+      }
     }, {
       GUID: '0BAC4220-A766-4D48-A4EB-FFD8BC9DACA1',
       type: '48465300-0000-11AA-AA11-00306543ECAC',
@@ -112,9 +153,10 @@ var hdd = disk.load( '/dev/sda' )
         description: 'HFS+ partition'
       },
       name: 'System',
-      attributes: <Buffer 00 00 00 00 00 00 00 00>,
+      attributes: < Buffer 00 00 00 00 00 00 00 00 > ,
       firstLBA: 409640,
-      lastLBA: 53144015
+      lastLBA: 53144015,
+      volume: [Error: No VBR detected]
     }, {
       GUID: '5CD98B53-D17B-4F67-9297-9D19DAE91E37',
       type: '426F6F74-0000-11AA-AA11-00306543ECAC',
@@ -123,9 +165,10 @@ var hdd = disk.load( '/dev/sda' )
         description: 'Apple Boot partition'
       },
       name: 'Recovery HD',
-      attributes: <Buffer 00 00 00 00 00 00 00 00>,
+      attributes: < Buffer 00 00 00 00 00 00 02 00 > ,
       firstLBA: 53144016,
-      lastLBA: 54413551
+      lastLBA: 54413551,
+      volume: [Error: No VBR detected]
     }, {
       GUID: '4EB6A87B-269C-4A66-AE60-97EFB83E2DC8',
       type: 'EBD0A0A2-B9E5-4433-87C0-68B6B72699C7',
@@ -134,9 +177,24 @@ var hdd = disk.load( '/dev/sda' )
         description: 'Basic data partition'
       },
       name: 'BOOTCAMP',
-      attributes: <Buffer 00 00 00 00 00 00 00 00>,
+      attributes: < Buffer 00 00 00 00 00 00 00 00 > ,
       firstLBA: 54415360,
-      lastLBA: 236976127
+      lastLBA: 236976127,
+      volume: {
+        systemName: 'NTFS',
+        type: < Buffer f8 > ,
+        bytesPerSector: 512,
+        sectorsPerCluster: 8,
+        clusterSize: 4096,
+        numberOfFATs: 0,
+        maxEntries: 0,
+        sectorsPerFAT: 0,
+        sectorsPerTrack: 63,
+        headsPerTrack: 255,
+        hiddenSectors: 20480,
+        reservedSectors: 0,
+        sectors: 0
+      }
     }]
   }
 }
