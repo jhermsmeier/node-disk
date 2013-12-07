@@ -2,7 +2,11 @@
 var disk = require( '../' )
 var util = require( 'util' )
 
-var hdd = disk.load( '\\\\.\\PhysicalDrive0' )
+const HDD = '\\\\.\\PhysicalDrive0'
+const SDC = '\\\\.\\PhysicalDrive1'
+const USB = '\\\\.\\PhysicalDrive2'
+
+var hdd = disk.load( SDC )
 
 var out = util.inspect( hdd, {
   showHidden: false,
@@ -10,5 +14,4 @@ var out = util.inspect( hdd, {
   colors: true
 })
 
-console.log( disk )
 process.stdout.write( '\n' + out + '\n' )
