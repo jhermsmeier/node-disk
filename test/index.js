@@ -1,17 +1,35 @@
+var Disk = require( '../' )
+var assert = require( 'assert' )
 
-var disk = require( '../' )
-var util = require( 'util' )
+function inspect( object ) {
+  process.stdout.write(
+    require( 'util' ).inspect( object, {
+      colors: true,
+      depth: null
+    }) + '\n\n'
+  )
+}
 
 const HDD = '\\\\.\\PhysicalDrive0'
-const SDC = '\\\\.\\PhysicalDrive1'
-const USB = '\\\\.\\PhysicalDrive2'
+const USB = '\\\\.\\PhysicalDrive1'
+const SDC = '\\\\.\\PhysicalDrive2'
 
-var hdd = disk.load( SDC )
+var device = new Disk.Device( 0 )
+var disk = Disk.fromDevice( device )
 
-var out = util.inspect( hdd, {
-  showHidden: false,
-  depth: null,
-  colors: true
-})
+function snap(o) {
+  return JSON.parse(
+    JSON.stringify( o )
+  )
+}
 
-process.stdout.write( '\n' + out + '\n' )
+// inspect( Disk )
+inspect( disk )
+
+// console.log( Device.detectSize( device.fd, device.blockSize ) )
+
+// NOTE:
+// Never forget to unmount the device
+// after being done using it, to prevent
+// file descriptor leakage
+device.unmount()
