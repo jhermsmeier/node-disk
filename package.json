@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "license": "MIT",
   "description": "",
-  "kewords": [ "disk", "mbr", "gpt", "vbr" ],
+  "keywords": [ "disk", "mbr", "gpt", "vbr" ],
   
   "author": {
     "name": "Jonas Hermsmeier",
