@@ -14,16 +14,28 @@ const HDD = '\\\\.\\PhysicalDrive0'
 const USB = '\\\\.\\PhysicalDrive1'
 const SDC = '\\\\.\\PhysicalDrive2'
 
-var device = new Disk.Device( 1 )
-var disk = Disk.fromDevice( device )
+var hdd = Disk.fromDevice(
+  new Disk.Device( 0 )
+)
 
-// inspect( Disk )
-inspect( disk )
+var disk = Disk.fromDevice(
+  new Disk.Device( 1 )
+)
 
-// console.log( Device.detectSize( device.fd, device.blockSize ) )
+// inspect( disk )
+
+// Change type to hybrid GPT
+// disk.MBR.partitions[0].type = 0xEE
+// disk.device.writeLBA( 0, disk.MBR.buffer )
+
+inspect( disk.GPT )
+
+disk.device.writeLBA( 0, hdd.MBR.buffer )
+disk.device.writeLBA( 1, hdd.GPT.buffer )
+// disk.device.writeLBA( 1, disk.GPT.buffer )
 
 // NOTE:
 // Never forget to unmount the device
 // after being done using it, to prevent
 // file descriptor leakage
-device.unmount()
+disk.device.unmount()
