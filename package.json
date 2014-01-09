@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "license": "MIT",
   "description": "",
-  "keywords": [ "disk", "mbr", "gpt", "vbr" ],
+  "keywords": [ "disk" ],
   
   "author": {
     "name": "Jonas Hermsmeier",
@@ -12,12 +12,9 @@
     "url": "https://github.com/jhermsmeier"
   },
   
-  "main": "lib/disk.js",
+  "main": "lib/disk",
   
-  "dependencies": {
-    "int64-native": "latest",
-    "buffer-crc32": "latest"
-  },
+  "dependencies": {},
   
   "repository": {
     "type": "git",
