@@ -14,7 +14,15 @@
   
   "main": "lib/disk",
   
-  "dependencies": {},
+  "dependencies": {
+    "async-emitter": "latest",
+    "gpt": "latest",
+    "mbr": "latest"
+  },
+  
+  "devDependencies": {
+    "vhd": "latest"
+  },
   
   "repository": {
     "type": "git",
