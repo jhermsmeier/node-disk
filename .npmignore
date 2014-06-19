@@ -1,8 +1,1 @@
-# Windows image file caches
-Thumbs.db 
-
-# Folder config file
-Desktop.ini
-
-# Ignore /test for now, as it holds sensitive data
-/test
+test
