@@ -1,29 +1,76 @@
-var Disk = require( '../' )
+var util = require( 'util' )
 var assert = require( 'assert' )
+var async = require( 'async' )
 
-function inspect( object ) {
-  process.stdout.write(
-    require( 'util' ).inspect( object, {
-      colors: true,
-      depth: null
-    }) + '\n\n'
-  )
+var BlockDevice = require( '../../node-blockdevice' )
+var Disk = require( '../' )
+var NTFS = require( '../../node-ntfs' )
+
+var log = console.log.bind( console )
+function inspect( label, object ) {
+  log( '\n' + label, util.inspect( object, {
+    colors: true,
+    depth: null
+  }))
+  log( '' )
 }
 
 const HDD = '\\\\.\\PhysicalDrive0'
 const USB = '\\\\.\\PhysicalDrive1'
 const SDC = '\\\\.\\PhysicalDrive2'
 
-var device = new Disk.Device( 1 )
-var disk = Disk.fromDevice( device )
+var device = new BlockDevice({
+  path: HDD
+})
 
-// inspect( Disk )
-inspect( disk )
+var disk = new Disk( device )
+var fs = new NTFS({
+  readOnly: true
+})
 
-// console.log( Device.detectSize( device.fd, device.blockSize ) )
-
-// NOTE:
-// Never forget to unmount the device
-// after being done using it, to prevent
-// file descriptor leakage
-device.unmount()
+async.waterfall([
+  
+  function mountDisk( next ) {
+    log( '[DISK] mounting...' )
+    disk.mount( next )
+  },
+  
+  function getEFIPartition( next ) {
+    log( '[DISK] mounted' )
+    // inspect( 'Disk', disk )
+    log( '[DISK] getEFIPart()' )
+    var efipart = disk.getEFIPart()
+    inspect( 'EFI Partition', efipart )
+    efipart == null ?
+      void next( new Error( 'No EFI Partition' ) ) :
+      void next()
+  },
+  
+  function mountFileSystem( next ) {
+    
+    if( !disk.gpt )
+      return next( new Error( 'No GPT detected' ) )
+    
+    var partition = disk.gpt.table.partitions
+      .filter( function( partition ) {
+        return partition.name == 'BOOTCAMP'
+      })[0]
+    
+    if( !partition )
+      return next( new Error( 'No BOOTCAMP partition' ) )
+    
+    log( '[NTFS] mounting...' )
+    inspect( '[NTFS] Partition', partition )
+    fs.mount( partition, next )
+    
+  },
+  
+  function unmountDisk( next ) {
+    log( '[NTFS] mounted' )
+    inspect( 'NTFS', fs )
+    disk.unmount( next )
+  },
+  
+], function( error ) {
+  error && inspect( 'Fatal:', error )
+})
