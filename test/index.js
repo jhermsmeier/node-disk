@@ -20,7 +20,7 @@ const USB = '\\\\.\\PhysicalDrive1'
 const SDC = '\\\\.\\PhysicalDrive2'
 
 var device = new BlockDevice({
-  path: HDD
+  path: BlockDevice.getPath( 0 )
 })
 
 var disk = new Disk( device )
@@ -32,7 +32,7 @@ async.waterfall([
   
   function mountDisk( next ) {
     log( '[DISK] mounting...' )
-    disk.mount( next )
+    disk.open( next )
   },
   
   function getEFIPartition( next ) {
@@ -61,14 +61,14 @@ async.waterfall([
     
     log( '[NTFS] mounting...' )
     inspect( '[NTFS] Partition', partition )
-    fs.mount( partition, next )
+    fs.mount( disk, partition, next )
     
   },
   
   function unmountDisk( next ) {
     log( '[NTFS] mounted' )
     inspect( 'NTFS', fs )
-    disk.unmount( next )
+    disk.close( next )
   },
   
 ], function( error ) {
