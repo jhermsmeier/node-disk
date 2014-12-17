@@ -60,7 +60,9 @@ async.waterfall([
     if( !disk.gpt )
       return next( new Error( 'No GPT detected' ) )
     
-    var partition = disk.gpt.table.partitions
+    console.log( disk.gpt )
+    
+    var partition = disk.gpt.partitions
       .filter( function( partition ) {
         return partition.name == 'BOOTCAMP'
       })[0]
