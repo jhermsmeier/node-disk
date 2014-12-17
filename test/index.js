@@ -35,6 +35,15 @@ async.waterfall([
     disk.open( next )
   },
   
+  // function detectSize( next ) {
+  //   disk.device.detectSize( null, function( error, size ) {
+  //     log( '[SIZE]', size, 'bytes' )
+  //     log( '[SIZE]', size / 1024 / 1024, 'MB' )
+  //     log( '[SIZE]', size / 1024 / 1024 / 1024, 'GB' )
+  //     next()
+  //   })
+  // },
+  
   function getEFIPartition( next ) {
     log( '[DISK] mounted' )
     // inspect( 'Disk', disk )
