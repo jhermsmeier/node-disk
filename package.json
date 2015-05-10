@@ -1,36 +1,33 @@
 {
-  
   "name": "disk",
   "version": "0.3.0",
+  "description": "Disk",
   "license": "MIT",
-  "description": "",
-  "keywords": [ "disk" ],
-  
-  "author": {
-    "name": "Jonas Hermsmeier",
-    "email": "jhermsmeier@gmail.com",
-    "url": "https://github.com/jhermsmeier"
-  },
-  
+  "keywords": [
+    "disk",
+    "fs",
+    "mbr",
+    "gpt",
+    "partition"
+  ],
   "main": "lib/disk",
-  
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
   "dependencies": {
-    "async-emitter": "latest",
-    "gpt": "latest",
-    "mbr": "latest"
+    "gpt": "~0.4.1",
+    "mbr": "~0.4.4"
   },
-  
   "devDependencies": {
-    "vhd": "latest"
+    "ramdisk": "~0.2.0"
   },
-  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/jhermsmeier/node-disk",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jhermsmeier/node-disk.git"
+    "url": "git+https://github.com/jhermsmeier/node-disk.git"
   },
-  
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-disk/issues"
   }
-  
 }
