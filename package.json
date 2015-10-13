@@ -1,14 +1,21 @@
 {
   "name": "disk",
   "version": "0.4.0",
-  "description": "Disk",
+  "description": "Handle physical & virtual block devices",
   "license": "MIT",
   "keywords": [
     "disk",
     "fs",
     "mbr",
     "gpt",
-    "partition"
+    "partition",
+    "filesystem",
+    "file",
+    "system",
+    "blockdevice",
+    "master boot record",
+    "guid partition table",
+    "hdd"
   ],
   "main": "lib/disk",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
@@ -29,5 +36,8 @@
   },
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-disk/issues"
+  },
+  "directories": {
+    "test": "test"
   }
 }
