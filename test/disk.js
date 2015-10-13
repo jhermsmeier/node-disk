@@ -1,44 +1,45 @@
 var Disk = require( '../' )
 var BlockDevice = require( 'blockdevice' )
-var test = require( 'tape' )
+var assert = require( 'assert' )
 
 const DISK_IMAGE = __dirname + '/data/bootcamp-osx-win.bin'
 
-test( 'Disk', function( t ) {
+describe( 'Disk', function( t ) {
   
   var device = null
   var disk = null
   
-  t.doesNotThrow( function() {
-    device = new BlockDevice({
-      path: DISK_IMAGE,
-      mode: 'r',
-      blockSize: 512
-    })
-  }, null, 'init block device' )
-  
-  t.doesNotThrow( function() {
-    disk = new Disk( device )
-  }, null, 'init disk with device' )
-  
-  t.test( 'disk.open()', function( t ) {
-    disk.open( function( error ) {
-      t.error( error, 'success' )
-      t.end()
+  it( 'init block device', function() {
+    assert.doesNotThrow( function() {
+      device = new BlockDevice({
+        path: DISK_IMAGE,
+        mode: 'r',
+        blockSize: 512
+      })
     })
   })
   
-  t.test( 'repeat disk.open()', function( t ) {
-    disk.open( function( error ) {
-      t.error( error, 'success' )
-      t.end()
+  it( 'init disk with device', function() {
+    assert.doesNotThrow( function() {
+      disk = new Disk( device )
     })
   })
   
-  t.test( 'disk.close()', function( t ) {
+  it( 'disk.open()', function( next ) {
+    disk.open( function( error ) {
+      next( error )
+    })
+  })
+  
+  it( 'repeat disk.open()', function( next ) {
+    disk.open( function( error ) {
+      next( error )
+    })
+  })
+  
+  it( 'disk.close()', function( next ) {
     disk.close( function( error ) {
-      t.error( error, 'success' )
-      t.end()
+      next( error )
     })
   })
   
