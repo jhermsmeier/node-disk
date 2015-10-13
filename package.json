@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "blockdevice": "~0.5.0",
-    "ramdisk": "~0.2.0"
+    "ramdisk": "~0.2.0",
+    "tap-spec": "~4.1.0",
+    "tape": "~4.2.1"
   },
   "scripts": {
     "test": "tape test/**/*.js | tap-spec"
