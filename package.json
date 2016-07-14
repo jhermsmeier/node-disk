@@ -1,6 +1,6 @@
 {
   "name": "disk",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Handle physical & virtual block devices",
   "license": "MIT",
   "keywords": [
@@ -20,13 +20,13 @@
   "main": "lib/disk",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
   "dependencies": {
-    "gpt": "~0.4.1",
-    "mbr": "~0.4.4"
+    "gpt": "~0.5.0",
+    "mbr": "~0.5.0"
   },
   "devDependencies": {
-    "blockdevice": "~0.5.0",
-    "mocha": "~2.3.3",
-    "ramdisk": "~0.3.0"
+    "blockdevice": "~0.6.0",
+    "mocha": "~2.5.3",
+    "ramdisk": "~0.3.1"
   },
   "scripts": {
     "test": "mocha"
