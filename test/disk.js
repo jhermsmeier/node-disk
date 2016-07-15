@@ -8,14 +8,14 @@ var assert = require( 'assert' )
   'usb-thumb-exfat.bin',
   'usb-thumb-fat.bin'
 ].forEach( function( filename ) {
-  
+
   const DISK_IMAGE = __dirname + '/data/' + filename
-  
+
   describe( 'Disk ' + filename, function( t ) {
-    
+
     var device = null
     var disk = null
-    
+
     it( 'init block device', function() {
       assert.doesNotThrow( function() {
         device = new BlockDevice({
@@ -25,31 +25,31 @@ var assert = require( 'assert' )
         })
       })
     })
-    
+
     it( 'init disk with device', function() {
       assert.doesNotThrow( function() {
         disk = new Disk( device )
       })
     })
-    
+
     it( 'disk.open()', function( next ) {
       disk.open( function( error ) {
         next( error )
       })
     })
-    
+
     it( 'repeat disk.open()', function( next ) {
       disk.open( function( error ) {
         next( error )
       })
     })
-    
+
     it( 'disk.close()', function( next ) {
       disk.close( function( error ) {
         next( error )
       })
     })
-    
+
   })
 
 })
