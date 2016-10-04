@@ -20,14 +20,14 @@
   "main": "lib/disk",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
   "dependencies": {
-    "async": "~2.0.0",
+    "async": "~2.0.1",
     "debug": "~2.2.0",
-    "gpt": "~0.5.0",
-    "mbr": "~0.5.0"
+    "gpt": "~1.0.0",
+    "mbr": "~1.0.0"
   },
   "devDependencies": {
     "blockdevice": "~0.6.0",
-    "mocha": "~2.5.3",
+    "mocha": "~3.1.0",
     "ramdisk": "~0.3.1"
   },
   "scripts": {
