@@ -1,7 +1,8 @@
 {
   "name": "disk",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Handle physical & virtual block devices",
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "license": "MIT",
   "keywords": [
     "disk",
@@ -18,7 +19,6 @@
     "hdd"
   ],
   "main": "lib/disk",
-  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de/)",
   "dependencies": {
     "async": "~2.0.1",
     "debug": "~2.2.0",
