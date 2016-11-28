@@ -10,3 +10,6 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 charset = utf-8
+
+[*.{md,mkd,markdown}]
+trim_trailing_whitespace = false
