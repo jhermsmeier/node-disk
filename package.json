@@ -20,14 +20,14 @@
   ],
   "main": "lib/disk",
   "dependencies": {
-    "async": "~2.0.1",
-    "debug": "~2.2.0",
+    "async": "~2.1.4",
+    "debug": "~2.3.3",
     "gpt": "~1.0.0",
     "mbr": "~1.0.0"
   },
   "devDependencies": {
     "blockdevice": "~0.6.0",
-    "mocha": "~3.1.0",
+    "mocha": "~3.2.0",
     "ramdisk": "~0.3.1"
   },
   "scripts": {
