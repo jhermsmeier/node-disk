@@ -33,21 +33,25 @@ var assert = require( 'assert' )
     })
 
     it( 'disk.open()', function( next ) {
-      disk.open( function( error ) {
-        next( error )
-      })
+      disk.open( next )
+    })
+
+    it( 'mbr', function() {
+      assert.ok( disk.mbr instanceof Disk.MBR, 'Missing Master Boot Record' )
+    })
+
+    it( 'gpt', function() {
+      if( disk.mbr.getEFIPart() ) {
+        assert.ok( disk.gpt instanceof Disk.GPT, 'Missing GUID Partition Table' )
+      }
     })
 
     it( 'repeat disk.open()', function( next ) {
-      disk.open( function( error ) {
-        next( error )
-      })
+      disk.open( next )
     })
 
     it( 'disk.close()', function( next ) {
-      disk.close( function( error ) {
-        next( error )
-      })
+      disk.close( next )
     })
 
   })
