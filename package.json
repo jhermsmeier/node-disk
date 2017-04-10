@@ -20,7 +20,6 @@
   ],
   "main": "lib/disk",
   "dependencies": {
-    "async": "~2.3.0",
     "debug": "~2.6.3",
     "gpt": "~1.0.0",
     "mbr": "~1.1.0"
