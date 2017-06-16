@@ -2,6 +2,9 @@
 *.log
 *.md
 
+build
+benchmark
+example
 doc
 test
 tools
