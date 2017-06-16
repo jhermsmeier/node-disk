@@ -22,7 +22,7 @@
   "dependencies": {
     "debug": "^2.6.8",
     "gpt": "~1.0.0",
-    "mbr": "^1.1.1"
+    "mbr": "^1.1.2"
   },
   "devDependencies": {
     "blockdevice": "~0.6.0",
