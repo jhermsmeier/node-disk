@@ -16,53 +16,55 @@ $ npm install --save disk
 var Disk = require( 'disk' )
 ```
 
-Set up a device to work with. This can be anything with a [blockdevice](https://github.com/jhermsmeier/node-blockdevice) compatible API.
+Set up a device to work with.
+This can be anything with a [blockdevice](https://github.com/jhermsmeier/node-blockdevice) compatible API.
+
 ```js
 var device = new BlockDevice({
   path: BlockDevice.getPath( 0 )
 })
 ```
 
+Create a disk:
+
 ```js
 var disk = new Disk( device )
 ```
 
-```js
-disk.open( function( error ) {
-  // Opens a handle to the device and attempts
-  // to detect it's block size if unspecified,
-  // as well as reading the MBR & GPT on the device
-})
-```
+Open the device:
 
 ```js
-disk.readMBR( function( error, mbr ) {
-  // ...
-})
+// This also attempts to detect it's block size if unspecified,
+// as well as reading the MBR & GPT on the device
+disk.open( function( error ) {})
 ```
 
-```js
-disk.writeMBR( function( error ) {
-  // ...
-})
-```
+Read or write the MBR (`disk.mbr`) from or to the device:
 
 ```js
-disk.readGPT( function( error, gpt ) {
-  // ...
-})
+disk.readMBR( function( error, mbr ) {})
+disk.writeMBR( function( error ) {})
 ```
 
-```js
-disk.verifyGPT( function( error, backupGPT ) {
-  // ...
-})
-```
+Read or write the GPT (`disk.gpt`) from or to the device:
 
 ```js
-disk.close( function( error ) {
-  // Closes the handle to the device
-})
+disk.readGPT( function( error, gpt ) {})
+disk.writeGPT( function( error ) {})
+```
+
+Verify the backup GPT;
+NOTE: The callback will be called with an error *and*
+the backup GPT if it doesn't verify.
+
+```js
+disk.verifyGPT( function( error, backupGPT ) {})
+```
+
+Close the device:
+
+```js
+disk.close( function( error ) {})
 ```
 
 ## API
@@ -88,4 +90,5 @@ disk.close( function( error ) {
 - **readMBR( callback )**
 - **writeMBR( callback )**
 - **readGPT( callback )**
+- **writeGPT( callback )**
 - **writeGPT( callback )**: Not implemented
