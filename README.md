@@ -10,6 +10,30 @@
 $ npm install --save disk
 ```
 
+## Related Modules
+
+**Internals:**
+
+- [MBR](https://github.com/jhermsmeier/node-mbr) – Master Boot Record
+- [GPT](https://github.com/jhermsmeier/node-gpt) – GUID Partition Table
+- [CHS](https://github.com/jhermsmeier/node-chs) – Cylinder-Head-Sector Addressing
+- [apple-partition-map](https://github.com/jhermsmeier/node-apple-partition-map) – Apple Partition Map
+- [BlockDevice](https://github.com/jhermsmeier/node-blockdevice) – Block device handling
+- [RamDisk](https://github.com/jhermsmeier/node-ramdisk) – In-memory block device
+
+**Block Devices:**
+
+- [VHD](https://github.com/jhermsmeier/node-vhd) – Microsoft Virtual Hard Disk format
+- [UDIF](https://github.com/jhermsmeier/node-udif) – Apple's DMG / UDIF (Universal Disk Image Format)
+- [UDF](https://github.com/jhermsmeier/node-udf) – OSTA Universal Disk Format
+
+**File Systems:**
+
+- [FAT32](https://github.com/jhermsmeier/node-fat32) – FAT32/16/12 file system driver
+- [ExFAT](https://github.com/jhermsmeier/node-exfat) – ExFAT file system driver
+- [HFSX](https://github.com/jhermsmeier/node-hsfx) – Apple HFS+ file system driver
+- [NTFS](https://github.com/jhermsmeier/node-ntfs) – NTFS file system driver
+
 ## Usage
 
 ```js
