@@ -122,6 +122,14 @@ disk.open( function( error ) {
       // NOTE: Hybrid MBRs only really makes sense
       // when you're also partitioning the device / image
       part.type = 0xEF
+      part.firstLBA = 1
+      part.sectors = Math.floor( totalBlocks * 0.1 )
+      part.firstCHS.cylinder = 1023
+      part.firstCHS.head = 254
+      part.firstCHS.sector = 63
+      part.lastCHS.cylinder = 1023
+      part.lastCHS.head = 254
+      part.lastCHS.sector = 63
     }
 
     console.log( 'Creating GUID Partition Table' )
