@@ -20,8 +20,8 @@
   ],
   "main": "lib/disk",
   "dependencies": {
-    "debug": "^4.1.0",
-    "gpt": "^2.0.0",
+    "debug": "^4.1.1",
+    "gpt": "^2.0.2",
     "mbr": "^1.1.2"
   },
   "devDependencies": {
