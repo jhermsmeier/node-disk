@@ -19,6 +19,9 @@
     "hdd"
   ],
   "main": "lib/disk",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "gpt": "^2.0.2",
@@ -29,9 +32,6 @@
     "mocha": "^5.2.0",
     "ramdisk": "^0.3.1"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "homepage": "https://github.com/jhermsmeier/node-disk",
   "repository": {
     "type": "git",
@@ -39,8 +39,5 @@
   },
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-disk/issues"
-  },
-  "directories": {
-    "test": "test"
   }
 }
