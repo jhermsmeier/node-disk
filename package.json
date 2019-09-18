@@ -1,6 +1,6 @@
 {
   "name": "disk",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Handle physical & virtual block devices",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "license": "MIT",
